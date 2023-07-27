@@ -1,15 +1,28 @@
-import React from 'react'
+import { useState, useRef } from 'react'
 import { BiSolidParty } from 'react-icons/bi';
 import { MdLocationOn } from 'react-icons/md';
 
 const Search = () => {
+  const eventInputRef = useRef(null);
+  const countryInputRef = useRef(null);
+
+  const [searchBtn, setSearchBtn] = useState(false);
+
+  const searchBtnHandler = () => {
+    if(countryInputRef.current.value == "---" || eventInputRef.current.value == "---") {
+      setSearchBtn(false);
+    } else {
+      setSearchBtn(true);
+    }
+  }
+
   return (
     <form className='flex justify-around items-center w-1/2 p-5 rounded-md shadow-sm bg-white-color'>
       <div className='flex w-1/3 p-2 items-center bg-secondary-color rounded-md'>
         <label htmlFor="events">
             <BiSolidParty className='text-xl mr-2 text-orange-color'/>
         </label>
-        <select name="" id="events" className='w-full bg-secondary-color' placeholder='Event'>
+        <select name="" id="events" className='w-full bg-secondary-color' ref={eventInputRef} onMouseLeave={searchBtnHandler}>
             <option value="---">---</option>
             <option value="all">All</option>
         </select>
@@ -17,7 +30,7 @@ const Search = () => {
 
       <div className='flex w-1/3 p-2 items-center bg-secondary-color rounded-md'>
         <label htmlFor="state"><MdLocationOn className='text-xl mr-2 text-orange-color'/></label>
-        <select id="state" name="state" className='w-full bg-secondary-color'>
+        <select id="state" name="state" className='w-full bg-secondary-color' ref={countryInputRef} onMouseLeave={searchBtnHandler}>
             <option value="---">---</option>
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
@@ -77,9 +90,7 @@ const Search = () => {
             </select>
       </div>
       <div>
-        <input type='submit' className='w-full p-2 pr-10 pl-10 rounded-md bg-soft-primary
-        
-        text-white-color font-bold cursor-not-allowed'/>
+        <input type='submit' className={searchBtn ? "w-full p-2 pr-10 pl-10 rounded-md bg-primary-color text-white-color font-bold cursor-pointer" : "w-full p-2 pr-10 pl-10 rounded-md bg-soft-primary text-white-color font-bold pointer-events-none"} />
       </div>
 
     </form>
