@@ -8,8 +8,8 @@ export default {
       'primary-color': '#6246EA',
       'secondary-color': '#F0EFFE',
       'soft-primary': '#7158EA',
-      'primary-darkMode': '#09090A',
-      'secondary-darkMode': '#18181B',
+      'primary-darkMode': '#2B2A33',
+      'secondary-darkMode': '#1C1B22',
       'orange-color': '#E45858',
       'white-color': '#FFFFFF',
       'off-white-color': 'F5F5F5'
