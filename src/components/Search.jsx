@@ -18,7 +18,7 @@ const Search = () => {
 
   return (
     <form className='flex justify-around items-center w-1/2 p-5 rounded-md shadow-sm bg-white-color'>
-      <div className='flex w-1/3 p-2 items-center bg-secondary-color rounded-md'>
+      <div className=' flex  w-1/3  p-2 items-center bg-secondary-color rounded-md'>
         <label htmlFor="events">
             <BiSolidParty className='text-xl mr-2 text-orange-color'/>
         </label>

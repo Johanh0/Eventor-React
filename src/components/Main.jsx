@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { fetchData } from '../fetchData'
 import Card from "./Card"
 
-const apiData = fetchData(`${import.meta.env.VITE_API_URL}?client_id=${import.meta.env.VITE_CLIENT_ID}&geoip=true`)
+const apiData = fetchData(`${import.meta.env.VITE_API_URL}?client_id=${import.meta.env.VITE_CLIENT_ID}&per_page=12&geoip=true`)
 
 const Main = () => {
     const data = apiData.read();
@@ -10,7 +10,7 @@ const Main = () => {
     console.log(data[0].performers[0].image)
 
   return (
-    <div className='p-16'>
+    <section className='p-16 max-w-[1500px] m-auto'>
         <div className='flex flex-wrap justify-center items-center'>
       <Suspense fallback={<div>loading...</div>}/>
         {data?.map(events => (
@@ -24,7 +24,7 @@ const Main = () => {
         ))}
       <Suspense/>
         </div>
-    </div>
+    </section>
   )
 }
 
