@@ -1,13 +1,16 @@
 import React from 'react'
+import Nav from './Nav'
 
-const Header = () => {
+const Header = ({darkMode}) => {
   return (
-    <div className='font-bold'>
-      <h1 className='text-center text-4xl mt-2 mb-10'>Find The {''}
-        <span className='text-primary-color'>Best Events In</span> {''}
+    <section className='font-bold'>
+      <div>
+        <h1 className={`text-center text-4xl mt-2 mb-10 ${darkMode ? 'text-white-color' : ''}`}>Find The {''}
+        <span className={darkMode ? 'text-white-color' : 'text-primary-color'}>Best Events In</span> {''}
         Your State
-      </h1>
-    </div>
+        </h1>
+      </div>
+    </section>
   )
 }
 
