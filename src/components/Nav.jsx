@@ -1,7 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { DarkModeContext } from '../context/DarkModeProvider'
 import { MdOutlineDarkMode, MdDarkMode } from 'react-icons/md'
 
-const Nav = ({darkMode, setDarkMode}) => {
+const Nav = () => {
+
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
     const handleDarkMode = () => {
         if(darkMode) {

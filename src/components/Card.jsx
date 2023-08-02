@@ -1,7 +1,12 @@
-import React from 'react'
+import { useContext } from 'react'
+import {DarkModeContext} from '../context/DarkModeProvider'
 
 
-const Card = ({title, img, address, url, darkMode}) => {
+
+const Card = ({title, img, address, url}) => {
+
+
+    const { darkMode } = useContext(DarkModeContext);
 
   return (
     <div>

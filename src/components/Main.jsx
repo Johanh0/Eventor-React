@@ -1,30 +1,38 @@
-import { Suspense } from 'react'
-import { fetchData } from '../fetchData'
+import { useContext, useEffect } from 'react'
+import { DarkModeContext } from '../context/DarkModeProvider'
+import { ApiContext } from '../context/ApiProvider';
 import Card from "./Card"
 
-const apiData = fetchData(`${import.meta.env.VITE_API_URL}?client_id=${import.meta.env.VITE_CLIENT_ID}&per_page=12&geoip=true`)
+const Main = () => {
 
-const Main = ({darkMode}) => {
-    const data = apiData.read();
-    console.log(data);
-    console.log(data[0].performers[0].image)
+  const { darkMode } = useContext(DarkModeContext);
+  const { data, loading, fetchData } = useContext(ApiContext);
+
+  // venue.state=NY
+  
+
+  useEffect(() => {
+    fetchData(`${import.meta.env.VITE_API_URL}?client_id=${import.meta.env.VITE_CLIENT_ID}&per_page=12&geoip=true`);
+  }, [])
 
   return (
-    <section className={`p-16 max-w-[1500px] m-auto ${darkMode ? 'bg-primary-darkMode' : ''}`}>
-        <div className='flex flex-wrap justify-center items-center'>
-      <Suspense fallback={<div>loading...</div>}/>
-        {data?.map(events => (
-            <Card 
-            key={events.id} 
-            title={events.title} 
-            img={events.performers[0].image} 
+    <section className={`p-16 w-full h-fit  m-auto ${darkMode ? 'bg-primary-darkMode' : ''}`}>
+      <div className='flex flex-wrap items-center justify-center'>
+      {
+        loading ? (
+          <p>Cargando....</p>
+        ) : (
+          data?.map(events => (
+            <Card
+            key={events.id}
+            title={events.title}
+            img={events.performers[0].image}
             address={`${events.venue.extended_address} ${events.venue.address}`}
-            url={events.performers[0].url}
-            darkMode={darkMode}
-            />
-        ))}
-      <Suspense/>
-        </div>
+            url={events.performers[0].url}/>
+          ))
+        )
+      }
+      </div>
     </section>
   )
 }

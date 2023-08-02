@@ -1,31 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
+import DarkModeProvider from './context/DarkModeProvider'
+import ApiProvider from './context/ApiProvider'
 import Hero from "./components/Hero"
 import Main from "./components/Main"
 import Nav from "./components/Nav"
 
 function App() {
 
-  useEffect(() => {
-    const darkModeStatus = localStorage.getItem('darkModeStatus');
-    if(darkModeStatus === 'true') {
-      setDarkMode(true);
-    } else if (darkModeStatus === 'false') {
-      setDarkMode(false);
-    }
-  }, [])
-  
-  const [darkMode, setDarkMode] = useState(localStorage.getItem(Boolean('darkModeStatus')));
-
-  useEffect(() => {
-    localStorage.setItem('darkModeStatus', darkMode);
-  }, [darkMode]);
-
   return (
-    <main className={darkMode ? 'bg-primary-darkMode' : 'bg-white-color'}>
-      <Nav darkMode={darkMode} setDarkMode={setDarkMode}/>
-      <Hero darkMode={darkMode}/>
-      <Main darkMode={darkMode}/>
-    </main>
+    <ApiProvider>
+      <DarkModeProvider>
+        <main>
+          <Nav/>
+          <Hero/>
+          <Main/>
+        </main>
+      </DarkModeProvider>
+    </ApiProvider>
   )
 }
 

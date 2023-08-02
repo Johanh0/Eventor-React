@@ -1,7 +1,10 @@
-import React from 'react'
+import { useContext } from 'react'
+import { DarkModeContext } from '../context/DarkModeProvider'
 import Nav from './Nav'
 
-const Header = ({darkMode}) => {
+const Header = () => {
+
+  const { darkMode } = useContext(DarkModeContext);
   return (
     <section className='font-bold'>
       <div>
