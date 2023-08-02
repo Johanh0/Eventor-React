@@ -26,10 +26,10 @@ const Search = () => {
 
   const handleClickSubmit = (e) => {
     e.preventDefault();
-    // console.log(eventInputRef.current.value);
-    // console.log(countryInputRef.current.value);
     const searchData = fetchData(`${import.meta.env.VITE_API_URL}?client_id=${import.meta.env.VITE_CLIENT_ID}&taxonomies.name=${eventInputRef.current.value}&per_page=12&venue.state=${countryInputRef.current.value}`);
     setData(searchData);
+    // eventInputRef.current.value = '';
+    // countryInputRef.current.value = '';
   }
 
   return (

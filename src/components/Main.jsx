@@ -16,8 +16,8 @@ const Main = () => {
   }, [])
 
   return (
-    <section className={`p-16 w-full h-fit  m-auto ${darkMode ? 'bg-primary-darkMode' : ''}`}>
-      <div className='flex flex-wrap items-center justify-center'>
+    <section className={`p-16 m-auto ${darkMode ? 'bg-primary-darkMode' : ''}`}>
+      <div className='flex flex-wrap items-center justify-center w-full h-screen'>
       {
         loading ? (
           <p>Cargando....</p>
