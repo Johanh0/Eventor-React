@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { MdOutlineDarkMode, MdDarkMode } from 'react-icons/md'
 
 const Nav = ({darkMode, setDarkMode}) => {

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { BiSolidParty } from 'react-icons/bi';
 import { MdLocationOn } from 'react-icons/md';
 
-const Search = () => {
+const Search = ({darkMode}) => {
   const eventInputRef = useRef(null);
   const countryInputRef = useRef(null);
 
@@ -17,20 +17,20 @@ const Search = () => {
   }
 
   return (
-    <form className='flex justify-around items-center w-1/2 p-5 rounded-md shadow-sm bg-white-color'>
-      <div className=' flex  w-1/3  p-2 items-center bg-secondary-color rounded-md'>
+    <form className={`flex justify-around items-center w-1/2 p-5 rounded-md shadow-sm ${darkMode ?  'bg-secondary-color' : 'bg-white-color'}`}>
+      <div className={`flex  w-1/3  p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
         <label htmlFor="events">
             <BiSolidParty className='text-xl mr-2 text-orange-color'/>
         </label>
-        <select name="" id="events" className='w-full bg-secondary-color' ref={eventInputRef} onMouseLeave={searchBtnHandler}>
+        <select name="" id="events" className={`w-full ${darkMode ? 'bg-white-color' : 'bg-secondary-color'}`} ref={eventInputRef} onMouseLeave={searchBtnHandler}>
             <option value="---">---</option>
             <option value="all">All</option>
         </select>
       </div>
 
-      <div className='flex w-1/3 p-2 items-center bg-secondary-color rounded-md'>
+      <div className={`flex  w-1/3  p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
         <label htmlFor="state"><MdLocationOn className='text-xl mr-2 text-orange-color'/></label>
-        <select id="state" name="state" className='w-full bg-secondary-color' ref={countryInputRef} onMouseLeave={searchBtnHandler}>
+        <select id="state" name="state" className={`w-full ${darkMode ? 'bg-white-color' : 'bg-secondary-color'}`} ref={countryInputRef} onMouseLeave={searchBtnHandler}>
             <option value="---">---</option>
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
