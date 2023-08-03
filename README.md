@@ -2,7 +2,7 @@
 Discover exciting events across the United States! Eventor is your ultimate destination to find and explore a wide range of thrilling events, from vibrant festivals to mesmerizing concerts and beyond. Easily search events by state and category, and embark on unforgettable adventures across the nation!
 
 
-#### 🚀 [Deployment](https://github.com/cssbuttons-io)
+#### 🚀 [Deployment](https://gorgeous-griffin-a813a7.netlify.app/)
 
 ## 🛠 Tools
 
