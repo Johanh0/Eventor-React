@@ -12,7 +12,8 @@ export default {
       'secondary-darkMode': '#1C1B22',
       'orange-color': '#E45858',
       'white-color': '#FFFFFF',
-      'off-white-color': 'F5F5F5'
+      'off-white-color': 'F5F5F5',
+      'grey-color': '#535353'
     }
   },
   plugins: [

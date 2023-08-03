@@ -33,14 +33,15 @@ const Search = () => {
   }
 
   return (
-    <form className={`flex justify-around items-center w-1/2 p-5 rounded-md shadow-sm ${darkMode ?  'bg-secondary-color' : 'bg-white-color'}`}>
-      <div className={`flex  w-1/3  p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
+    <form className={`flex justify-around items-center flex-col md:flex-row  md:gap-0 w-1/2 p-5 rounded-md shadow-sm ${darkMode ?  'bg-secondary-color' : 'bg-white-color'} text-primary-darkMode`}>
+
+      <div className={`flex w-full md:w-1/3 p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
         <label htmlFor="events">
             <BiSolidParty className='text-xl mr-2 text-orange-color'/>
         </label>
         <select name="" id="events" className={`w-full ${darkMode ? 'bg-white-color' : 'bg-secondary-color'}`} ref={eventInputRef} onMouseLeave={searchBtnHandler}>
             <option value="---">---</option>
-            <option value="all">All</option>
+            {/* <option value="all">All</option> */}
             <option value="sport">Sport</option>
             <option value="comedy">Comedy</option>
             <option value="family">Family</option>
@@ -50,7 +51,7 @@ const Search = () => {
         </select>
       </div>
 
-      <div className={`flex  w-1/3  p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
+      <div className={`flex w-full md:w-1/3 p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
         <label htmlFor="state"><MdLocationOn className='text-xl mr-2 text-orange-color'/></label>
         <select id="state" name="state" className={`w-full ${darkMode ? 'bg-white-color' : 'bg-secondary-color'}`} ref={countryInputRef} onMouseLeave={searchBtnHandler}>
             <option value="---">---</option>

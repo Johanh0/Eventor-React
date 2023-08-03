@@ -13,7 +13,7 @@ function App() {
 
   return (
   <main 
-    className={`${darkMode ? 'bg-primary-darkMode' : ''} w-full h-screen ${menu ? 'overflow-hidden' : ''}`}>
+    className={`${darkMode ? 'bg-primary-darkMode text-secondary-color' : 'text-primary-darkMode'} w-full h-screen ${menu ? 'overflow-hidden' : ''}`}>
     <Nav/>
     <Menu/>
     <Hero/>
