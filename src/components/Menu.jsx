@@ -8,7 +8,7 @@ const Menu = () => {
     const { menu } = useContext(MenuContext)
 
   return (
-    <div className={`${menu ? 'absolute' : 'hidden'} top-0 left-0 z-10 w-full h-screen ${darkMode ? 'bg-primary-darkMode' : 'bg-secondary-color'}`}>
+    <div className={`${menu ? 'fixed overflow-y-hidden' : 'hidden'} top-0 left-0 z-10 w-full h-screen ${darkMode ? 'bg-primary-darkMode' : 'bg-secondary-color'}`}>
       
     </div>
   )

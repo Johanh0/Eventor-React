@@ -1,7 +1,6 @@
 import { useContext } from 'react'
-import MenuProvider from './context/MenuProvider'
-import DarkModeProvider from './context/DarkModeProvider'
-import ApiProvider from './context/ApiProvider'
+import { DarkModeContext } from './context/DarkModeProvider'
+import { MenuContext } from './context/MenuProvider'
 import Nav from "./components/Nav"
 import Menu from './components/Menu'
 import Hero from "./components/Hero"
@@ -9,19 +8,17 @@ import Main from "./components/Main"
 
 function App() {
 
+  const { darkMode } = useContext(DarkModeContext);
+  const { menu } = useContext(MenuContext)
+
   return (
-    <ApiProvider>
-      <DarkModeProvider>
-        <main>
-          <MenuProvider>
-            <Nav/>
-            <Menu/>
-          </MenuProvider>
-          <Hero/>
-          <Main/>
-        </main>
-      </DarkModeProvider>
-    </ApiProvider>
+  <main 
+    className={`${darkMode ? 'bg-primary-darkMode' : ''} w-full h-screen ${menu ? 'overflow-hidden' : ''}`}>
+    <Nav/>
+    <Menu/>
+    <Hero/>
+    <Main/>
+  </main>
   )
 }
 

@@ -2,13 +2,12 @@ import { useContext, useEffect } from 'react'
 import { DarkModeContext } from '../context/DarkModeProvider'
 import { ApiContext } from '../context/ApiProvider';
 import Card from "./Card"
+import Loading from './common/Loading';
 
 const Main = () => {
 
   const { darkMode } = useContext(DarkModeContext);
   const { data, loading, fetchData } = useContext(ApiContext);
-
-  // venue.state=NY
   
 
   useEffect(() => {
@@ -16,11 +15,11 @@ const Main = () => {
   }, [])
 
   return (
-    <section className={`p-16 m-auto ${darkMode ? 'bg-primary-darkMode' : ''}`}>
+    <section className={`p-16 m-auto h-fit ${darkMode ? 'bg-primary-darkMode' : ''}`}>
       <div className='flex flex-wrap items-center justify-center w-full h-fit'>
       {
         loading ? (
-          <p>Cargando....</p>
+          <Loading/>
         ) : (
           data?.map(events => (
             <Card
