@@ -57,7 +57,7 @@ const DarkModeProvider = ({ children }) => {
       darkMode,
       setDarkMode
     }}>
-      {children}
+      { children }
     </DarkModeContext.Provider>
   )
 }

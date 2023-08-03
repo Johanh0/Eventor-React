@@ -1,9 +1,11 @@
 import { useContext } from 'react'
+import MenuProvider from './context/MenuProvider'
 import DarkModeProvider from './context/DarkModeProvider'
 import ApiProvider from './context/ApiProvider'
+import Nav from "./components/Nav"
+import Menu from './components/Menu'
 import Hero from "./components/Hero"
 import Main from "./components/Main"
-import Nav from "./components/Nav"
 
 function App() {
 
@@ -11,7 +13,10 @@ function App() {
     <ApiProvider>
       <DarkModeProvider>
         <main>
-          <Nav/>
+          <MenuProvider>
+            <Nav/>
+            <Menu/>
+          </MenuProvider>
           <Hero/>
           <Main/>
         </main>

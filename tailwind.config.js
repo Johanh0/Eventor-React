@@ -15,6 +15,8 @@ export default {
       'off-white-color': 'F5F5F5'
     }
   },
-  plugins: [],
+  plugins: [
+
+  ],
 }
 
