@@ -33,7 +33,7 @@ const Search = () => {
   }
 
   return (
-    <form className={`flex justify-around items-center flex-col md:flex-row  md:gap-0 w-1/2 p-5 rounded-md shadow-sm ${darkMode ?  'bg-secondary-color' : 'bg-white-color'} text-primary-darkMode`}>
+    <form className={`flex justify-around items-center flex-col md:flex-row gap-3 md:gap-0 w-1/2 p-5 rounded-md shadow-sm ${darkMode ?  'bg-secondary-color' : 'bg-white-color'} text-primary-darkMode`}>
 
       <div className={`flex w-full md:w-1/3 p-2 items-center ${darkMode ? 'bg-white-color' : 'bg-secondary-color'} rounded-md`}>
         <label htmlFor="events">
